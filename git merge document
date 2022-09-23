@@ -1,0 +1,57 @@
+git status
+git branch featureA
+git branch featureB
+
+
+Dev1
+===
+git switch featureA
+echo "FeatureA" >> feature.txt
+git add .
+git commit -m "FeatureA branch Commit"
+
+
+Dev2
+====
+git switch featureB
+echo "FeatureB" >> feature.txt
+git add .
+git commit -m "FeatureB branch Commit"
+
+Merging changes in the master/main branch
+========================================
+git switch main
+git merge featureA
+git merge featureB
+git mergetool
+esc + :wq 
+esc + :qa
+git clean -f
+git merge --continue 
+ctrl+O
+ctrl+X
+
+
+Merging changes in the master/main branch using git rebase
+==========================================================
+git switch main
+git rebase featureA
+git rebase featureB
+git mergetool
+esc + :wq
+esc + :qa
+git clean -f
+git rebase --continue
+ctrl+O
+ctrl+X
+
+
+git switch main
+git merge featureA
+
+it merges the code from a featureA + it will also update the commit history in the main branch of featureA branch and also, will include one commit with has the merge changes
+
+git rebase featureA
+
+it is similar as git merge command. the only difference is doen't update the merge history in the branch.
+
